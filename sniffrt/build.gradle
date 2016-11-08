@@ -1,0 +1,62 @@
+apply plugin: 'java'
+
+dependencies {
+    testCompile 'junit:junit:4.+'
+}
+
+// TODO: Enable native build via gradle
+//apply plugin: 'objective-c'
+//
+//model {
+//    components {
+//        main(NativeLibrarySpec) {
+//            sources {
+//                objc.source.srcDir "src/main/c"
+//            }
+//        }
+//        test(NativeExecutableSpec) {
+//            sources {
+//                objc.source.srcDir "src/test/c"
+//            }
+//            binaries.all { lib library: 'main', linkage: 'shared' }
+//        }
+//    }
+//}
+
+def buildNativeTarget(target, configuration) {
+
+    def output_dir = mkdir("${buildDir}/xcode")
+    def log = file("${output_dir}/build-${target}.log")
+    try {
+        exec {
+            executable = "xcodebuild"
+            workingDir = "native"
+
+            args "-target", "$target"
+            args "-configuration", "$configuration"
+            args "SYMROOT=${output_dir}"
+
+            setIgnoreExitValue false
+
+            FileOutputStream ostream = new FileOutputStream(log);
+            setErrorOutput(ostream)
+            setStandardOutput(ostream)
+        }
+    } catch (GradleException ex) {
+        logger.error(log.text)
+        throw new GradleException("Failed to build native components", ex)
+    }
+}
+
+task buildNative << {
+    buildNativeTarget("sniffrt", "Release")
+    buildNativeTarget("test_app", "Release")
+}
+
+String[] native_outputs = ["${buildDir}/xcode/Release/libsniffrt.dylib", "${buildDir}/xcode/Release/test_app" ]
+
+buildNative.inputs.files fileTree('native/sniffrt').getFiles().toArray()
+buildNative.inputs.files fileTree('native/test').getFiles().toArray()
+buildNative.outputs.files native_outputs
+
+testClasses.dependsOn buildNative
