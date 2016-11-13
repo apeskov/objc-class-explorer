@@ -1,0 +1,103 @@
+syntax = "proto2";
+
+option java_package = "classbrowser";
+option java_outer_classname = "MessagingProto";
+
+message Request {
+
+  enum Type {
+    GetModuleList= 0;
+    GetClassesForModule = 1;
+    Cancel = 2;
+    Close = 3;
+  }
+  required Type type = 1;
+
+  /**
+   * Only for GetClassesFromModule request type.
+   * Should containe module name;
+   */
+  optional int64 moduleId = 2;
+}
+
+message Response {
+
+  enum Type {
+    ModuleList = 0;
+    Class = 1;
+    EndOfList = 2;
+  }
+  required Type type = 1;
+
+  /**
+   * Class Info.
+   * Atomic description blob of class except information from
+   * super class. Super calss and module are referenced by Id.
+   */
+  message ClassInfo {
+    required int64 id = 1;
+
+    required string name = 2;
+    required int64 moduleId = 3;
+    required int64 superClassId = 4;
+
+
+    /**
+     * Class and instance Methods
+     * (-) and (+) Selectors
+     */
+    message MethodInfo {
+      required string selector = 1;
+      required string typeEncoding = 2;
+    }
+    repeated MethodInfo staticMethods = 5;
+    repeated MethodInfo methods = 6;
+
+
+      /**
+       * Instance variebles
+       */
+    message IvarInfo {
+      required string name = 1;
+      required string typeEncoding = 2;
+    }
+    repeated IvarInfo ivars = 7;
+
+    /**
+     * Properties
+     */
+    message PropertyInfo {
+      required string name = 1;
+    }
+    repeated PropertyInfo properties = 8;
+
+    /**
+     * Protocols list
+     * TODO: Curremtly only name. Enhance to full graph of inheritance
+     */
+    message ProtocolInfo {
+      required string name = 1;
+    }
+    repeated ProtocolInfo protocols = 9;
+  }
+  optional ClassInfo classInfo = 2;
+
+  /**
+   * Modules list.
+   *
+   * This list contains all objc modules loaded in tetsted process.
+   * Module Id is just an index number of module in list. So every module id
+   * should be less then size of list;
+   */
+  message ModulesListInfo {
+    required int64 mainModuleId = 1;
+
+    message ModuleInfo {
+      required int64 id = 1;
+      required string name = 2;
+      required int32 classesCount = 3;
+    }
+    repeated ModuleInfo modules = 2;
+  }
+  optional ModulesListInfo moduleList = 3;
+}

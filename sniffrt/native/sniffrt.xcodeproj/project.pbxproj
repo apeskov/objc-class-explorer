@@ -10,12 +10,53 @@
 		0101F92B1DD11D950019853D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101F91E1DD11D3C0019853D /* main.m */; };
 		0101F92D1DD11F120019853D /* appmain_inject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101F92C1DD11F120019853D /* appmain_inject.m */; };
 		0101F9301DD120670019853D /* libsniffrt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0171BD001DD118AE00612FC6 /* libsniffrt.dylib */; };
+		01514CC21DD7B58C0076B1D2 /* GPBProtocolBuffers.m in Sources */ = {isa = PBXBuildFile; fileRef = 01514CC11DD7B58C0076B1D2 /* GPBProtocolBuffers.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		01514CC61DD7B6370076B1D2 /* GPBProtocolBuffers.h in Headers */ = {isa = PBXBuildFile; fileRef = 01514CC51DD7B6370076B1D2 /* GPBProtocolBuffers.h */; };
+		01514CC81DD7B95B0076B1D2 /* GPBProtocolBuffers_RuntimeSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 01514CC71DD7B95B0076B1D2 /* GPBProtocolBuffers_RuntimeSupport.h */; };
+		01514CC91DD7B9940076B1D2 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01514CBC1DD7B4F70076B1D2 /* libprotobuf.a */; };
+		016959781DD4C28500DCF5FD /* Classinfo.pbobjc.h in Headers */ = {isa = PBXBuildFile; fileRef = 016959761DD4C28500DCF5FD /* Classinfo.pbobjc.h */; };
+		016959791DD4C28500DCF5FD /* Classinfo.pbobjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 016959771DD4C28500DCF5FD /* Classinfo.pbobjc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		016959891DD4E92D00DCF5FD /* libsniffrt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0171BD001DD118AE00612FC6 /* libsniffrt.dylib */; };
+		016959901DD4E97900DCF5FD /* ObjcModuleParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0169598F1DD4E97900DCF5FD /* ObjcModuleParserTest.m */; };
 		0171BD0A1DD1191B00612FC6 /* rt_class_sniffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0171BD081DD1191B00612FC6 /* rt_class_sniffer.h */; };
 		0171BD0B1DD1191B00612FC6 /* rt_class_sniffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0171BD091DD1191B00612FC6 /* rt_class_sniffer.m */; };
+		01B748271DD33CAE00D542F5 /* SRTConnectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 01B748251DD33CAE00D542F5 /* SRTConnectionHandler.h */; };
+		01B748281DD33CAE00D542F5 /* SRTConnectionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B748261DD33CAE00D542F5 /* SRTConnectionHandler.m */; };
+		01B7482B1DD3D73E00D542F5 /* SRTObjcClassObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 01B748291DD3D73E00D542F5 /* SRTObjcClassObserver.h */; };
+		01B7482C1DD3D73E00D542F5 /* SRTObjcClassObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B7482A1DD3D73E00D542F5 /* SRTObjcClassObserver.m */; };
+		01B7482F1DD3EF7F00D542F5 /* SRTObjcModuleParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 01B7482D1DD3EF7F00D542F5 /* SRTObjcModuleParser.h */; };
+		01B748301DD3EF7F00D542F5 /* SRTObjcModuleParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B7482E1DD3EF7F00D542F5 /* SRTObjcModuleParser.m */; };
+		01B748331DD3F7E700D542F5 /* stubs.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B748321DD3F7E700D542F5 /* stubs.m */; };
+		01D136341DD6A7C900158958 /* SRTClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D136321DD6A7C900158958 /* SRTClassInfo.h */; };
+		01D136351DD6A7C900158958 /* SRTClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D136331DD6A7C900158958 /* SRTClassInfo.m */; };
+		01D136371DD6AB7300158958 /* ClassInfoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D136361DD6AB7300158958 /* ClassInfoTest.m */; };
+		01D1363A1DD76B0500158958 /* SRTModuleInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 01D136381DD76B0500158958 /* SRTModuleInfo.h */; };
+		01D1363B1DD76B0500158958 /* SRTModuleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D136391DD76B0500158958 /* SRTModuleInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		0101F92E1DD120630019853D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0171BCF81DD118AD00612FC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0171BCFF1DD118AD00612FC6;
+			remoteInfo = sniffrt;
+		};
+		01514CC31DD7B59C0076B1D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0171BCF81DD118AD00612FC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01514CBB1DD7B4F70076B1D2;
+			remoteInfo = protobuf;
+		};
+		01514CCA1DD7B9FA0076B1D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0171BCF81DD118AD00612FC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01514CBB1DD7B4F70076B1D2;
+			remoteInfo = protobuf;
+		};
+		0169598A1DD4E92D00DCF5FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0171BCF81DD118AD00612FC6 /* Project object */;
 			proxyType = 1;
@@ -40,9 +81,30 @@
 		0101F91E1DD11D3C0019853D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0101F9241DD11D540019853D /* test_app */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test_app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0101F92C1DD11F120019853D /* appmain_inject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appmain_inject.m; sourceTree = "<group>"; };
+		01514CBC1DD7B4F70076B1D2 /* libprotobuf.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libprotobuf.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		01514CC11DD7B58C0076B1D2 /* GPBProtocolBuffers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPBProtocolBuffers.m; sourceTree = "<group>"; };
+		01514CC51DD7B6370076B1D2 /* GPBProtocolBuffers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPBProtocolBuffers.h; sourceTree = "<group>"; };
+		01514CC71DD7B95B0076B1D2 /* GPBProtocolBuffers_RuntimeSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPBProtocolBuffers_RuntimeSupport.h; sourceTree = "<group>"; };
+		016959761DD4C28500DCF5FD /* Classinfo.pbobjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Classinfo.pbobjc.h; sourceTree = "<group>"; };
+		016959771DD4C28500DCF5FD /* Classinfo.pbobjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Classinfo.pbobjc.m; sourceTree = "<group>"; };
+		016959841DD4E92D00DCF5FD /* test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		016959881DD4E92D00DCF5FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0169598F1DD4E97900DCF5FD /* ObjcModuleParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjcModuleParserTest.m; sourceTree = "<group>"; };
 		0171BD001DD118AE00612FC6 /* libsniffrt.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsniffrt.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		0171BD081DD1191B00612FC6 /* rt_class_sniffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rt_class_sniffer.h; sourceTree = "<group>"; };
 		0171BD091DD1191B00612FC6 /* rt_class_sniffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rt_class_sniffer.m; sourceTree = "<group>"; };
+		01B748251DD33CAE00D542F5 /* SRTConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRTConnectionHandler.h; sourceTree = "<group>"; };
+		01B748261DD33CAE00D542F5 /* SRTConnectionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRTConnectionHandler.m; sourceTree = "<group>"; };
+		01B748291DD3D73E00D542F5 /* SRTObjcClassObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRTObjcClassObserver.h; sourceTree = "<group>"; };
+		01B7482A1DD3D73E00D542F5 /* SRTObjcClassObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRTObjcClassObserver.m; sourceTree = "<group>"; };
+		01B7482D1DD3EF7F00D542F5 /* SRTObjcModuleParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRTObjcModuleParser.h; sourceTree = "<group>"; };
+		01B7482E1DD3EF7F00D542F5 /* SRTObjcModuleParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRTObjcModuleParser.m; sourceTree = "<group>"; };
+		01B748321DD3F7E700D542F5 /* stubs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stubs.m; sourceTree = "<group>"; };
+		01D136321DD6A7C900158958 /* SRTClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRTClassInfo.h; sourceTree = "<group>"; };
+		01D136331DD6A7C900158958 /* SRTClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRTClassInfo.m; sourceTree = "<group>"; };
+		01D136361DD6AB7300158958 /* ClassInfoTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassInfoTest.m; sourceTree = "<group>"; };
+		01D136381DD76B0500158958 /* SRTModuleInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRTModuleInfo.h; sourceTree = "<group>"; };
+		01D136391DD76B0500158958 /* SRTModuleInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRTModuleInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +116,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		01514CB91DD7B4F70076B1D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		016959811DD4E92D00DCF5FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				016959891DD4E92D00DCF5FD /* libsniffrt.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0171BCFD1DD118AD00612FC6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01514CC91DD7B9940076B1D2 /* libprotobuf.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,15 +146,49 @@
 			isa = PBXGroup;
 			children = (
 				0101F91E1DD11D3C0019853D /* main.m */,
+				01B748321DD3F7E700D542F5 /* stubs.m */,
 			);
 			path = test_app;
+			sourceTree = SOURCE_ROOT;
+		};
+		01514CC01DD7B5190076B1D2 /* protobuf */ = {
+			isa = PBXGroup;
+			children = (
+				01514CC71DD7B95B0076B1D2 /* GPBProtocolBuffers_RuntimeSupport.h */,
+				01514CC51DD7B6370076B1D2 /* GPBProtocolBuffers.h */,
+				01514CC11DD7B58C0076B1D2 /* GPBProtocolBuffers.m */,
+			);
+			name = protobuf;
+			path = ../../thirdparty/protobuf/objectivec;
+			sourceTree = SOURCE_ROOT;
+		};
+		016959751DD4C25E00DCF5FD /* gen */ = {
+			isa = PBXGroup;
+			children = (
+				016959761DD4C28500DCF5FD /* Classinfo.pbobjc.h */,
+				016959771DD4C28500DCF5FD /* Classinfo.pbobjc.m */,
+			);
+			name = gen;
+			path = ../build/generated/source/proto/main/objc;
+			sourceTree = SOURCE_ROOT;
+		};
+		016959851DD4E92D00DCF5FD /* test */ = {
+			isa = PBXGroup;
+			children = (
+				0169598F1DD4E97900DCF5FD /* ObjcModuleParserTest.m */,
+				01D136361DD6AB7300158958 /* ClassInfoTest.m */,
+				016959881DD4E92D00DCF5FD /* Info.plist */,
+			);
+			path = test;
 			sourceTree = SOURCE_ROOT;
 		};
 		0171BCF71DD118AD00612FC6 = {
 			isa = PBXGroup;
 			children = (
 				0171BD071DD118BD00612FC6 /* src */,
+				016959851DD4E92D00DCF5FD /* test */,
 				0101F91D1DD11CDA0019853D /* test_app */,
+				01514CC01DD7B5190076B1D2 /* protobuf */,
 				0171BD011DD118AE00612FC6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +198,8 @@
 			children = (
 				0171BD001DD118AE00612FC6 /* libsniffrt.dylib */,
 				0101F9241DD11D540019853D /* test_app */,
+				016959841DD4E92D00DCF5FD /* test.xctest */,
+				01514CBC1DD7B4F70076B1D2 /* libprotobuf.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,9 +207,20 @@
 		0171BD071DD118BD00612FC6 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				016959751DD4C25E00DCF5FD /* gen */,
 				0101F92C1DD11F120019853D /* appmain_inject.m */,
 				0171BD081DD1191B00612FC6 /* rt_class_sniffer.h */,
 				0171BD091DD1191B00612FC6 /* rt_class_sniffer.m */,
+				01B748291DD3D73E00D542F5 /* SRTObjcClassObserver.h */,
+				01B7482A1DD3D73E00D542F5 /* SRTObjcClassObserver.m */,
+				01B748251DD33CAE00D542F5 /* SRTConnectionHandler.h */,
+				01B748261DD33CAE00D542F5 /* SRTConnectionHandler.m */,
+				01B7482D1DD3EF7F00D542F5 /* SRTObjcModuleParser.h */,
+				01B7482E1DD3EF7F00D542F5 /* SRTObjcModuleParser.m */,
+				01D136321DD6A7C900158958 /* SRTClassInfo.h */,
+				01D136331DD6A7C900158958 /* SRTClassInfo.m */,
+				01D136381DD76B0500158958 /* SRTModuleInfo.h */,
+				01D136391DD76B0500158958 /* SRTModuleInfo.m */,
 			);
 			name = src;
 			path = sniffrt;
@@ -104,11 +229,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		01514CBA1DD7B4F70076B1D2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01514CC61DD7B6370076B1D2 /* GPBProtocolBuffers.h in Headers */,
+				01514CC81DD7B95B0076B1D2 /* GPBProtocolBuffers_RuntimeSupport.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0171BCFE1DD118AD00612FC6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0171BD0A1DD1191B00612FC6 /* rt_class_sniffer.h in Headers */,
+				01B7482F1DD3EF7F00D542F5 /* SRTObjcModuleParser.h in Headers */,
+				01B748271DD33CAE00D542F5 /* SRTConnectionHandler.h in Headers */,
+				01D136341DD6A7C900158958 /* SRTClassInfo.h in Headers */,
+				01D1363A1DD76B0500158958 /* SRTModuleInfo.h in Headers */,
+				016959781DD4C28500DCF5FD /* Classinfo.pbobjc.h in Headers */,
+				01B7482B1DD3D73E00D542F5 /* SRTObjcClassObserver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,10 +273,47 @@
 			productReference = 0101F9241DD11D540019853D /* test_app */;
 			productType = "com.apple.product-type.tool";
 		};
+		01514CBB1DD7B4F70076B1D2 /* protobuf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01514CBF1DD7B4F70076B1D2 /* Build configuration list for PBXNativeTarget "protobuf" */;
+			buildPhases = (
+				01514CB81DD7B4F70076B1D2 /* Sources */,
+				01514CB91DD7B4F70076B1D2 /* Frameworks */,
+				01514CBA1DD7B4F70076B1D2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = protobuf;
+			productName = protobuf;
+			productReference = 01514CBC1DD7B4F70076B1D2 /* libprotobuf.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		016959831DD4E92D00DCF5FD /* test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0169598C1DD4E92D00DCF5FD /* Build configuration list for PBXNativeTarget "test" */;
+			buildPhases = (
+				016959801DD4E92D00DCF5FD /* Sources */,
+				016959811DD4E92D00DCF5FD /* Frameworks */,
+				016959821DD4E92D00DCF5FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01514CCB1DD7B9FA0076B1D2 /* PBXTargetDependency */,
+				0169598B1DD4E92D00DCF5FD /* PBXTargetDependency */,
+			);
+			name = test;
+			productName = test;
+			productReference = 016959841DD4E92D00DCF5FD /* test.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		0171BCFF1DD118AD00612FC6 /* sniffrt */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0171BD041DD118AE00612FC6 /* Build configuration list for PBXNativeTarget "sniffrt" */;
 			buildPhases = (
+				016959741DD4AE3700DCF5FD /* Proto generator */,
 				0171BCFC1DD118AD00612FC6 /* Sources */,
 				0171BCFD1DD118AD00612FC6 /* Frameworks */,
 				0171BCFE1DD118AD00612FC6 /* Headers */,
@@ -144,6 +321,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				01514CC41DD7B59C0076B1D2 /* PBXTargetDependency */,
 			);
 			name = sniffrt;
 			productName = sniffrt;
@@ -160,6 +338,14 @@
 				ORGANIZATIONNAME = home;
 				TargetAttributes = {
 					0101F9231DD11D540019853D = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+					01514CBB1DD7B4F70076B1D2 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+					016959831DD4E92D00DCF5FD = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -181,11 +367,41 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				01514CBB1DD7B4F70076B1D2 /* protobuf */,
 				0171BCFF1DD118AD00612FC6 /* sniffrt */,
 				0101F9231DD11D540019853D /* test_app */,
+				016959831DD4E92D00DCF5FD /* test */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		016959821DD4E92D00DCF5FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		016959741DD4AE3700DCF5FD /* Proto generator */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Proto generator";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -e /usr/local/bin/protoc ]\nthen\n  mkdir -p ${PROJECT_DIR}/../build/generated/source/proto/main/objc\n  /usr/local/bin/protoc --objc_out=${PROJECT_DIR}/../build/generated/source/proto/main/objc \\\n         --proto_path=${PROJECT_DIR}/../src/main/proto \\\n         ${PROJECT_DIR}/../src/main/proto/classinfo.proto\n\nelse\n  echo \"[ERROR] Protoc compiler was not found. Please install it.\"\n  echo \"For Mac it's available from homebrew.\"\n  exit 1\nfi";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0101F9201DD11D540019853D /* Sources */ = {
@@ -193,6 +409,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				0101F92B1DD11D950019853D /* main.m in Sources */,
+				01B748331DD3F7E700D542F5 /* stubs.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01514CB81DD7B4F70076B1D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01514CC21DD7B58C0076B1D2 /* GPBProtocolBuffers.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		016959801DD4E92D00DCF5FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				016959901DD4E97900DCF5FD /* ObjcModuleParserTest.m in Sources */,
+				01D136371DD6AB7300158958 /* ClassInfoTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +435,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0171BD0B1DD1191B00612FC6 /* rt_class_sniffer.m in Sources */,
+				01B748281DD33CAE00D542F5 /* SRTConnectionHandler.m in Sources */,
+				01B7482C1DD3D73E00D542F5 /* SRTObjcClassObserver.m in Sources */,
 				0101F92D1DD11F120019853D /* appmain_inject.m in Sources */,
+				01D136351DD6A7C900158958 /* SRTClassInfo.m in Sources */,
+				01B748301DD3EF7F00D542F5 /* SRTObjcModuleParser.m in Sources */,
+				01D1363B1DD76B0500158958 /* SRTModuleInfo.m in Sources */,
+				016959791DD4C28500DCF5FD /* Classinfo.pbobjc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +452,21 @@
 			isa = PBXTargetDependency;
 			target = 0171BCFF1DD118AD00612FC6 /* sniffrt */;
 			targetProxy = 0101F92E1DD120630019853D /* PBXContainerItemProxy */;
+		};
+		01514CC41DD7B59C0076B1D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01514CBB1DD7B4F70076B1D2 /* protobuf */;
+			targetProxy = 01514CC31DD7B59C0076B1D2 /* PBXContainerItemProxy */;
+		};
+		01514CCB1DD7B9FA0076B1D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01514CBB1DD7B4F70076B1D2 /* protobuf */;
+			targetProxy = 01514CCA1DD7B9FA0076B1D2 /* PBXContainerItemProxy */;
+		};
+		0169598B1DD4E92D00DCF5FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0171BCFF1DD118AD00612FC6 /* sniffrt */;
+			targetProxy = 0169598A1DD4E92D00DCF5FD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -228,6 +483,46 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		01514CBD1DD7B4F70076B1D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/../../thirdparty/protobuf/objectivec";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		01514CBE1DD7B4F70076B1D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = "${PROJECT_DIR}/../../thirdparty/protobuf/objectivec";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0169598D1DD4E92D00DCF5FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = test/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.home.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0169598E1DD4E92D00DCF5FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = test/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.home.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -349,6 +644,23 @@
 			buildConfigurations = (
 				0101F9291DD11D540019853D /* Debug */,
 				0101F92A1DD11D540019853D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01514CBF1DD7B4F70076B1D2 /* Build configuration list for PBXNativeTarget "protobuf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01514CBD1DD7B4F70076B1D2 /* Debug */,
+				01514CBE1DD7B4F70076B1D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0169598C1DD4E92D00DCF5FD /* Build configuration list for PBXNativeTarget "test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0169598D1DD4E92D00DCF5FD /* Debug */,
+				0169598E1DD4E92D00DCF5FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

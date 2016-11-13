@@ -13,8 +13,7 @@ int NSApplicationMain(int argc, const char * argv[]) {
         original_NSApplicationMain = dlsym(appkit_hdl, "NSApplicationMain");
     }
 
-    void* exec_entry= dlsym(RTLD_DEFAULT, "_mh_execute_header");
-    rt_class_sniffer_start(exec_entry);
+    rt_class_sniffer_start();
 
     // transfer call to original function
     return original_NSApplicationMain(argc, argv);
