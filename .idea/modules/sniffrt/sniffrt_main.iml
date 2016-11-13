@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":sniffrt:main" external.linked.project.path="$MODULE_DIR$/../../../sniffrt" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="objc-class-explorer" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="protobuf" name="Protobuf Facet">
+      <configuration>
+        <option name="COMPILER_OUTPUT_SOURCE_DIRECTORY" value="$MODULE_DIR$/../../../sniffrt/src/main/java" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/../../../sniffrt/build/classes/main" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../sniffrt/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../sniffrt/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../sniffrt/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-java:3.0.0" level="project" />
+  </component>
+</module>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/objc-class-explorer.iml" filepath="$PROJECT_DIR$/.idea/modules/objc-class-explorer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sniffrt/sniffrt.iml" filepath="$PROJECT_DIR$/.idea/modules/sniffrt/sniffrt.iml" group="sniffrt" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sniffrt/sniffrt_main.iml" filepath="$PROJECT_DIR$/.idea/modules/sniffrt/sniffrt_main.iml" group="sniffrt" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sniffrt/sniffrt_test.iml" filepath="$PROJECT_DIR$/.idea/modules/sniffrt/sniffrt_test.iml" group="sniffrt" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/uiClassBrowser/uiClassBrowser.iml" filepath="$PROJECT_DIR$/.idea/modules/uiClassBrowser/uiClassBrowser.iml" group="uiClassBrowser" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/uiClassBrowser/uiClassBrowser_main.iml" filepath="$PROJECT_DIR$/.idea/modules/uiClassBrowser/uiClassBrowser_main.iml" group="uiClassBrowser" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/uiClassBrowser/uiClassBrowser_test.iml" filepath="$PROJECT_DIR$/.idea/modules/uiClassBrowser/uiClassBrowser_test.iml" group="uiClassBrowser" />
+    </modules>
+  </component>
+</project>
