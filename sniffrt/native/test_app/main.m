@@ -4,10 +4,10 @@
 
 int main(int argc, const char * argv[]) {
 
-    void* exec_entry= dlsym(RTLD_DEFAULT, "_mh_execute_header");
-    rt_class_sniffer_start(exec_entry);
+    rt_class_sniffer_start();
 
-    // wait for any input. Just for test
-    getchar();
+    // Infiniti loop.
+    // Allow sniffer thread to complite all actions for test.
+    while (true) getchar();
     return 0;
 }
