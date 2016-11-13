@@ -1,5 +1,8 @@
 apply plugin: 'java'
 
+/*************************************
+ * Java part
+ *************************************/
 dependencies {
     testCompile 'junit:junit:4.+'
 }
@@ -23,6 +26,9 @@ dependencies {
 //    }
 //}
 
+/*************************************
+ * Native Obj-C part
+ *************************************/
 def buildNativeTarget(target, configuration) {
 
     def output_dir = mkdir("${buildDir}/xcode")
@@ -60,3 +66,11 @@ buildNative.inputs.files fileTree('native/test').getFiles().toArray()
 buildNative.outputs.files native_outputs
 
 testClasses.dependsOn buildNative
+
+/*************************************
+ * Protobuf part
+ *************************************/
+apply plugin: 'com.google.protobuf'
+
+dependencies { compile 'com.google.protobuf:protobuf-java:3.0.0' }
+
