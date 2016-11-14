@@ -10,6 +10,7 @@
 {
     CFSocketRef socket;
     CFSocketContext ctx;
+    CFRunLoopSourceRef socketsource;
     
     NSInputStream *inputStream;
     NSOutputStream *outputStream;
@@ -45,6 +46,7 @@
     memset(&ctx, 0, sizeof(ctx));
     ctx.info = (__bridge void*)self;
     
+    NSLog(@"Try to start");
     socket = CFSocketCreate(kCFAllocatorDefault,
                             PF_INET,
                             SOCK_STREAM,
@@ -64,11 +66,12 @@
                                     (UInt8 *)&sin,
                                     sizeof(sin));
     
-    CFSocketSetAddress(socket, sincfd);
+    CFSocketError err = CFSocketSetAddress(socket, sincfd);
+    if (err != kCFSocketSuccess) NSLog(@"[ERROR] was not able to set port.");
     CFRelease(sincfd);
 
-    CFRunLoopSourceRef socketsource = CFSocketCreateRunLoopSource(kCFAllocatorDefault,
-                                                                  socket, 0);
+    socketsource = CFSocketCreateRunLoopSource(kCFAllocatorDefault,
+                                               socket, 0);
 
     CFRunLoopAddSource(CFRunLoopGetCurrent(),
                        socketsource,
@@ -132,7 +135,7 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
             
         case NSStreamEventEndEncountered:
 
-            [self closeConnection];
+            [self finish];
             break;
             
         case NSStreamEventErrorOccurred:
@@ -227,14 +230,26 @@ void handleConnect(CFSocketRef s, CFSocketCallBackType type, CFDataRef address, 
 
 -(void) finish
 {
-    [self closeConnection];
-    CFSocketInvalidate(socket);
-}
-
--(void) closeConnection
-{
+    NSLog (@"[XXX] Try to invalidate");
+    
+    
+    [inputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [outputStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    [inputStream setDelegate:nil];
+    [outputStream setDelegate:nil];
+    
     [inputStream close];
     [outputStream close];
+    
+    inputStream = nil;
+    outputStream = nil;
+
+    CFRunLoopRemoveSource(CFRunLoopGetCurrent(), socketsource, kCFRunLoopDefaultMode);
+    CFRelease(socketsource);
+
+    CFSocketInvalidate(socket);
+    CFRelease(socket);
 }
 
 

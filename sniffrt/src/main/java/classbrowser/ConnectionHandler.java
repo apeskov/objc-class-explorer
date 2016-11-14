@@ -8,27 +8,27 @@ import java.net.Socket;
 
 public class ConnectionHandler {
 
-    final String host = "localhost";
-    final int port = 2000;
+    private final String HOST = "localhost";
+    private final int PORT = 2000;
 
-    final int connectionTimeout = 500;
-    final int connectionAttemptNum = 10;
+    private final int attemptNum = 10;
+    private final int attemptTimeout = 50;
 
-    Socket socket;
-    DataInputStream input;
-    DataOutputStream output = null;
+    private Socket socket;
+    private DataInputStream input;
+    private DataOutputStream output = null;
 
-    boolean continueReading = false;
-    Thread readerThread;
+    private boolean continueReading = false;
+    private Thread readerThread;
 
-    ConnectionHandlerListener delegate;
+    private ConnectionHandlerListener delegate;
 
     /**
      * Constructor with specifying message receiver
      *
      * @param delegate message receiver and event listener
      */
-    public ConnectionHandler(ConnectionHandlerListener delegate) {
+    ConnectionHandler(ConnectionHandlerListener delegate) {
         this.delegate = delegate;
     }
 
@@ -36,7 +36,7 @@ public class ConnectionHandler {
      * Delegate interface for parsing messages received
      * from sniffer rt.
      */
-    public interface ConnectionHandlerListener {
+    interface ConnectionHandlerListener {
 
         /**
          * Will called upon message arrival.
@@ -59,36 +59,31 @@ public class ConnectionHandler {
      *
      * @throws IOException if was not able to connect to the sniff rt server.
      */
-    public void startProcessing() throws Exception {
-
-        socket = new Socket();
-        InetSocketAddress socketAddress = new InetSocketAddress(host, port);
+    void startProcessing() throws Exception {
 
         /**
          * Attempt to connect for several times. Because of
          * sniff rt requires some time to start listen port
          */
-        for (int i = 0; i < connectionAttemptNum; i++) {
+        for (int i = 0; i < attemptNum; i++) {
             try {
-                socket.connect(socketAddress, connectionTimeout);
+                socket = new Socket(HOST, PORT);
                 break;
-            } catch (IOException e) { continue; }
+            } catch (IOException e) { Thread.sleep(attemptTimeout); }
         }
-        if (!socket.isConnected()) throw new IOException("Was not able to connect after " +
-                                                         connectionAttemptNum + " attempts.");
+        if (!socket.isConnected())
+            throw new IOException("Was not able to connect after " + attemptNum + " attempts.");
 
         input = new DataInputStream(socket.getInputStream());
         output = new DataOutputStream(socket.getOutputStream());
         continueReading = true;
 
-        /* Start read loop in separate thread */
-        readerThread = new Thread(() -> {
-            this.readLoop();
-        });
+        /* Start reading loop in separate thread */
+        readerThread = new Thread( this::readLoop );
         readerThread.start();
     }
 
-    void readLoop () {
+    private void readLoop () {
 
         while (continueReading) {
             try {
@@ -100,14 +95,19 @@ public class ConnectionHandler {
                 int ch2 = input.read();
                 int ch3 = input.read();
                 int ch4 = input.read();
-                if ((ch1 | ch2 | ch3 | ch4) < 0) return; // EOF - finish reading thread
+                if ((ch1 | ch2 | ch3 | ch4) < 0) {
+                    // EOF - finish reading thread
+                    // Socket was closed by server
+                    delegate.onClose();
+                    return;
+                }
 
                 int msgSize = (ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4 << 0);
 
                 byte[] data = new byte[msgSize];
                 int len = input.read(data, 0, msgSize);
 
-                if (len == -1) return; // EOF - finish reading thread
+                if (len == -1) return;
                 if (len != msgSize) return; // TODO: Add support of messages biggest then 1024
 
                 delegate.onMessageReceived(data);
@@ -119,7 +119,7 @@ public class ConnectionHandler {
         }
     }
 
-    public void sendMsg(byte[] data) {
+    void sendMsg(byte[] data) {
 
         try {
             output.writeInt(data.length);
@@ -133,7 +133,7 @@ public class ConnectionHandler {
     /**
      * Blocking call. Will wait for finishing reader thread.
      */
-    public void stopProcessing() {
+    void stopProcessing() {
 
         continueReading = false;
 

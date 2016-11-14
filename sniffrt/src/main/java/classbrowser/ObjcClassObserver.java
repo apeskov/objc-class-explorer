@@ -12,16 +12,16 @@ import java.util.Collection;
 
 public class ObjcClassObserver implements ConnectionHandler.ConnectionHandlerListener {
 
-    String executableName;
-    ConnectionHandler connectionHandler;
-    ClassAccumulator accumulator = new ClassAccumulator();
+    private String executableName;
+    private ConnectionHandler connectionHandler;
+    private ClassAccumulator accumulator = new ClassAccumulator();
 
-    Process patientProcess;
+    private Process patientProcess;
 
-    ObjcClassObserverDelegate delegate;
+    private ObjcClassObserverDelegate delegate;
 
     /**
-     * @param @param delegate listener of Sniffer RT events
+     * @param delegate listener of Sniffer RT events
      */
     public ObjcClassObserver(ObjcClassObserverDelegate delegate) {
 
@@ -44,7 +44,7 @@ public class ObjcClassObserver implements ConnectionHandler.ConnectionHandlerLis
     public void startSniffing() throws Exception {
 
         try {
-            patientProcess = new ProcessBuilder(executableName).start();
+            patientProcess = new ProcessBuilder(executableName).inheritIO().start();
             connectionHandler.startProcessing();
 
         } catch (IOException e) {
@@ -61,10 +61,18 @@ public class ObjcClassObserver implements ConnectionHandler.ConnectionHandlerLis
      *  @param killTestedProcess If true will destroy sniffed process,
      *                           else just leave it running
      */
-    public void stopSniffing(boolean killTestedProcess) throws Exception {
+    public void stopSniffing(boolean killTestedProcess) {
 
+        byte[] msg = Request.newBuilder()
+                .setType(Request.Type.Close)
+                .build()
+                .toByteArray();
+
+        connectionHandler.sendMsg(msg);
+
+        // Blocking call. Will wait for socket
+        // closure and join of reading thread
         connectionHandler.stopProcessing();
-        if (killTestedProcess) patientProcess.destroy();
     }
 
     public void askModuleList() {
@@ -79,13 +87,13 @@ public class ObjcClassObserver implements ConnectionHandler.ConnectionHandlerLis
 
     public void askMainModuleClasses() throws Exception {
 
-        byte[] request_data = Request.newBuilder()
+        byte[] msg = Request.newBuilder()
                 .setType(Request.Type.GetClassesForModule)
                 .setModuleId(accumulator.getMainModuleId())
                 .build()
                 .toByteArray();
 
-        connectionHandler.sendMsg(request_data);
+        connectionHandler.sendMsg(msg);
     }
 
     /******************************************
@@ -137,8 +145,15 @@ public class ObjcClassObserver implements ConnectionHandler.ConnectionHandlerLis
     }
 
     @Override
-    public void onClose(){
-        // TODO: To be implemented
+    public void onClose() {
+
+        try {
+
+            patientProcess.destroyForcibly().waitFor();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

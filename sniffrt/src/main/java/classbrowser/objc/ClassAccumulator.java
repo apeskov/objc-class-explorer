@@ -7,12 +7,12 @@ import java.util.HashMap;
 
 public class ClassAccumulator {
 
-    ModuleInfo[] modules = null;
-    int mainModuleId = -1;
+    private ModuleInfo[] modules = null;
+    private int mainModuleId = -1;
 
-    HashMap<Long, ClassInfo> totalClassList = new HashMap<Long, ClassInfo>();
-    HashMap<Long, ClassInfo> unresolvedClassList = new HashMap<Long, ClassInfo>();
-    HashMap<Long, ClassInfo> newlyArrived = new HashMap<Long, ClassInfo>();
+    private HashMap<Long, ClassInfo> totalClassList = new HashMap<Long, ClassInfo>();
+    private HashMap<Long, ClassInfo> unresolvedClassList = new HashMap<Long, ClassInfo>();
+    private HashMap<Long, ClassInfo> newlyArrived = new HashMap<Long, ClassInfo>();
 
     /**
      * Class info which will be added to accumulator as a new record without
@@ -26,7 +26,7 @@ public class ClassAccumulator {
 
         ClassInfo cls = new ClassInfo();
 
-        cls.name = info.getClassName();
+        cls.name = info.getName();
         cls.id = info.getId();
         cls.superId = info.getSuperClassId();
         cls.moduleId = info.getModuleId();
